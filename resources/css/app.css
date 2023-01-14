@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
+	:target {
+		scroll-margin-top: 0.8em;
+	}
+}
+
+.dp__input {
+	@apply bg-white border-white py-2 hover:bg-slate-50 w-full !important;
+}
+
+.hover,
+.hover svg {
+	@apply relative z-20 block outline-none cursor-pointer;
+}
+
+.hover:after {
+	content: '';
+	@apply -z-0 absolute inset-0 w-8 h-8 m-auto bg-indigo-100 rounded-full opacity-0;
+	left: -11px;
+	right: -11px;
+	-webkit-transform: scale(0.3);
+	transform: scale(0.3);
+	-webkit-transition: 0.3s ease;
+	transition: 0.3s ease;
+}
+
+.hover:hover:after {
+	@apply z-0 scale-100 opacity-100;
+}
+
+button {
+	@apply disabled:cursor-not-allowed;
+}
+
+.form-label {
+	@apply text-slate-700 block mb-1 text-sm font-medium;
+}
+.form-error {
+	@apply text-sm italic text-red-500;
+}
+.error {
+	@apply border-red-500;
+}
+
+.otp-input {
+	@apply w-14 form-input focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50 bg-slate-50 h-20 mx-1 text-4xl text-center transition duration-300 rounded-lg;
+}
+.otp-input.is-complete {
+	@apply bg-indigo-100;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+	appearance: textfield;
+}
+
+input[type='file']::file-selector-button {
+	@apply border-0 opacity-0 cursor-pointer;
+}
+
+.vue-notification {
+	@apply px-4 py-5 rounded-lg mb-5 ml-5 border-0 border-r-8 shadow-lg !important;
+}
+.vue-notification .notification-title {
+	@apply text-slate-800 text-base font-medium !important;
+}
+.vue-notification.success {
+	@apply bg-white border-green-500  !important;
+}
+.vue-notification.warn {
+	@apply bg-white border-orange-400  !important;
+}
+.vue-notification.error {
+	@apply bg-white border-red-500  !important;
+}
